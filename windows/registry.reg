@@ -21,3 +21,8 @@ Windows Registry Editor Version 5.00
 ; Hyper-V Keyboard
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\hyperkbd\Parameters]
 "CrashOnCtrlScroll"=dword:00000001
+
+
+; Python startup
+[HKEY_CURRENT_USER\Environment]
+"PYTHONSTARTUP"="%USERPROFILE%\\.pythonrc.py"
