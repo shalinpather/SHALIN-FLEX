@@ -1,11 +1,17 @@
 Windows Registry Editor Version 5.00
 
 
+; Assume the system clock is UTC
+; ==============================
+
 ; Make Windows assume the system clock is UTC instead of localtime - important
 ; to allow Arch Linux to sync the time as well without conflicts.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
 "RealTimeIsUniversal"=dword:00000001
 
+
+; Manual system crashes
+; =====================
 
 ; Enables the ability to manually trigger a system crash using the keyboard.
 ; Useful for debugging and troubleshooting kernel issues.
@@ -23,6 +29,19 @@ Windows Registry Editor Version 5.00
 "CrashOnCtrlScroll"=dword:00000001
 
 
-; Python startup
+; Environment variables
+; =====================
+
+; Python startup file
 [HKEY_CURRENT_USER\Environment]
-"PYTHONSTARTUP"="%USERPROFILE%\\.pythonrc.py"
+"PYTHONSTARTUP"="%USERPROFILE%\.pythonrc.py"
+
+
+; Disable fast startup
+; ====================
+
+; Windows fast shutdown leaves NTFS disks in a dirty state. We must turn this
+; feature off so that Arch Linux can mount the disks safely. We're using an
+; NVMe SSD, so fast startup brings negligible benefit, to be honest.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"HiberbootEnabled"=dword:00000000
