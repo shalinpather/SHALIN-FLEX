@@ -48,3 +48,12 @@ Windows Registry Editor Version 5.00
 ; NVMe SSD, so fast startup brings negligible benefit, to be honest.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
 "HiberbootEnabled"=dword:00000000
+
+
+; WireGuard
+; =========
+
+; Allow WireGuard to run user-defined scripts
+; Needed for udp2raw
+[HKEY_LOCAL_MACHINE\Software\WireGuard]
+"DangerousScriptExecution"=dword:00000001
