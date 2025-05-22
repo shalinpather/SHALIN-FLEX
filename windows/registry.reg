@@ -57,3 +57,9 @@ Windows Registry Editor Version 5.00
 ; Needed for udp2raw
 [HKEY_LOCAL_MACHINE\Software\WireGuard]
 "DangerousScriptExecution"=dword:00000001
+
+
+; PowerShell
+; ==========
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell]
+"ExecutionPolicy"="Bypass"
